@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  ui-bestrental:
+    build: .
+    ports:
+      - "80:80"
