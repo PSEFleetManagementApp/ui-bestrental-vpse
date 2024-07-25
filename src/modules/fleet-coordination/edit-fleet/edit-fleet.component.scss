@@ -1,0 +1,81 @@
+.background-container {
+  background-image: radial-gradient(circle at top left, black, gray, white);
+  justify-content: left;
+  width: 100%;
+  min-height: 100vh;
+  height: max-content;
+}
+
+.description {
+  color : black;
+  padding: 20px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+}
+
+.fleet-data {
+  margin-left: 20px;
+  background-color: snow;
+  border-radius: 2px;
+  outline: 1px solid black;
+  width: 90%;
+}
+
+.fleet-manager {
+  display: flex;
+  justify-content: left;
+}
+
+.manager-select {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: left;
+  padding: 20px;
+}
+
+.button {
+  color: black;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.save-button {
+  background-color: lightgray;
+}
+
+.save-button {
+  background-color: greenyellow;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.save-button:hover {
+  background-color: limegreen;
+}
+
+.cancel-button {
+  background-color: tomato;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.cancel-button:hover {
+  background-color: red;
+}

@@ -13,6 +13,9 @@ import { RentalOverviewComponent } from '../modules/rental-management/rental-ove
 import { CustomerRoutesGuardService } from '../core/customer-routes-guard/customer-routes-guard.service';
 import { FleetManagerRoutesGuardService } from '../core/fleet-manager-routes-guard/fleet-manager-routes-guard.service';
 import { ListCarRentalsComponent } from '../modules/rental-management/list-car-rentals/list-car-rentals.component';
+import { EditFleetComponent } from "../modules/fleet-coordination/edit-fleet/edit-fleet.component";
+import { FleetAdditionComponent } from "../modules/fleet-coordination/fleet-addition/fleet-addition.component";
+import { FleetsOverviewComponent } from "../modules/fleet-coordination/fleets-overview/fleets-overview.component";
 
 const canActivateAuthenticatedPage: CanActivateFn = (_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) => {
   return inject(AuthGuardService).canActivateAuthenticatedPage();
@@ -92,6 +95,27 @@ const routes: Routes = [
     path: environment.pages.landing_page,
     component: LandingPageComponent,
     canActivate: [canActivateAuthenticatedPage],
+  },
+
+  // Path to fleets overview
+  {
+    path: environment.pages.fleets_overview,
+    component: FleetsOverviewComponent
+    // TODO: canActivate guard
+  },
+
+  // Path to fleet addition
+  {
+    path: environment.pages.fleet_addition,
+    component: FleetAdditionComponent
+    // TODO: canActivate guard
+  },
+
+  // Path to edit fleet
+  {
+    path: environment.pages.edit_fleet,
+    component: EditFleetComponent
+    // TODO: canActivate guard
   },
 
   { path: '**', redirectTo: '' },

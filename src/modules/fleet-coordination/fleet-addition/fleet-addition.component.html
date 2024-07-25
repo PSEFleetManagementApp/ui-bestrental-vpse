@@ -1,0 +1,35 @@
+<div class="background-container">
+
+    <div class="l-form">
+
+        <div class="main-title">Create New Fleet</div>
+
+        <app-dialog
+                *ngIf="showMessageDialog"
+                [showMessageDialog]="showMessageDialog"
+                [message]="message"
+                (close)="closeMessageDialog()">
+        </app-dialog>
+
+        <div class="form">
+            <div class="form__div">
+                <input type="text" class="form__input" [(ngModel)]="location"/>
+                <label class="form__label">Location</label>
+            </div>
+
+            <div class="form__div">
+                <select class="form__input" [(ngModel)]="fleetManager">
+                    <option *ngFor="let manager of fleetManagers" [value]="manager">{{manager}}</option>
+                </select>
+                <label class="form__label">Fleet Manager</label>
+            </div>
+            <div class="buttons">
+                <button class="button save-button" (click)="createFleet()">Save</button>
+                <button class="button cancel-button" (click)="cancel()">Cancel</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

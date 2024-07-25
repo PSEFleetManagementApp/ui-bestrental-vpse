@@ -17,6 +17,10 @@
       <a routerLink="fleet-overview">Fleet Overview</a>
     </div>
 
+    <div class="fleet-coordination-container" *ngIf="isFleetCoordinator()">
+      <a routerLink="fleets-overview">Fleets Overview</a>
+    </div>
+
     <app-account-button [authNService]="authNService" />
   </div>
 </div>

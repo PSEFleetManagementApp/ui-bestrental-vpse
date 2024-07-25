@@ -1,0 +1,101 @@
+<div class="background-container">
+
+    <div class="title">Fleets Overview</div>
+    <app-dialog
+            *ngIf="showMessageDialog"
+            [showMessageDialog]="showMessageDialog"
+            [message]="message"
+            (close)="showMessageDialog = false">
+    </app-dialog>
+
+    <div class="fleet-coordination-container">
+        <div class="top-row-container">
+            <div class="left">
+                <div class="entries-per-page-select">
+                    <select id="entriesPerPage" [(ngModel)]="entriesPerPage">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </select>
+                    <label for="entriesPerPage">Entries per page</label>
+                </div>
+            </div>
+            <div class="right">
+
+                <button class="create-fleet-button" (click)="createNewFleet()">Create New Fleet</button>
+
+                <input type="text" class="search-input" [(ngModel)]="searchValue" (ngModelChange)="searchFleets()" placeholder="Search...">
+
+            </div>
+        </div>
+        <div class="table-container">
+            <table class="table">
+
+              <thead>
+                <tr>
+                  <th>
+                    <div class="header-content">
+                      Fleet ID
+                      <button class="sort-button" (click)="sortTable('fleetId')">
+                        <span *ngIf="sortDirection['fleetId'] === null">&nbsp;</span>
+                        <span *ngIf="sortDirection['fleetId'] === true">^</span>
+                        <span *ngIf="sortDirection['fleetId'] === false">v</span>
+                      </button>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-content">
+                      Location
+                      <button class="sort-button" (click)="sortTable('location')">
+                        <span *ngIf="sortDirection['location'] === null">&nbsp;</span>
+                        <span *ngIf="sortDirection['location'] === true">^</span>
+                        <span *ngIf="sortDirection['location'] === false">v</span>
+                      </button>
+                    </div>
+                  </th>
+                  <th>
+                    <div class="header-content">
+                      Fleet Manager
+                      <button class="sort-button" (click)="sortTable('fleetManager')">
+                        <span *ngIf="sortDirection['fleetManager'] === null">&nbsp;</span>
+                        <span *ngIf="sortDirection['fleetManager'] === true">^</span>
+                        <span *ngIf="sortDirection['fleetManager'] === false">v</span>
+                      </button>
+                    </div>
+                  </th>
+                  <th> </th>
+                  <th> </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let fleet of fleetsView | slice:(currentPage - 1) * entriesPerPage :currentPage * entriesPerPage">
+                  <td>{{ fleet.fleetId }}</td>
+                  <td>{{ fleet.location }}</td>
+                  <td>{{ fleet.fleetManager }}</td>
+                  <td><button class="edit-button" (click)="editFleet(fleet)">Edit</button></td>
+                  <td>
+                      <button class="delete-button" (click)="openDeleteDialog(fleet)">Delete</button>
+                      <app-dialog
+                              *ngIf="showDeleteDialog"
+                              [showDeleteDialog]="showDeleteDialog"
+                              [fleet]="selectedFleet"
+                              (close)="closeDeleteDialog($event)">
+                      </app-dialog>
+                  </td>
+                </tr>
+              </tbody>
+
+            </table>
+
+            <div class="pagination-buttons">
+                <button class="page-button" (click)="currentPage = 1" [disabled]="currentPage === 1"><<</button>
+                <button class="page-button" (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1"><</button>
+                <button class="page-button" *ngFor="let page of getPages()" (click)="currentPage = page" [class.highlighted]="currentPage === page">{{ page }}</button>
+                <button class="page-button" (click)="currentPage = currentPage + 1" [disabled]="currentPage === totalPages">></button>
+                <button class="page-button" (click)="currentPage = totalPages" [disabled]="currentPage === totalPages">>></button>
+            </div>
+
+        </div>
+    </div>
+</div>

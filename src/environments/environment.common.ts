@@ -22,5 +22,8 @@ export const commonEnv = {
     available_cars_list: 'available-cars-list',
     rental_creation: 'rental-creation',
     rental_overview: 'rental-overview',
+    fleets_overview: 'fleets-overview',
+    fleet_addition : 'fleet-addition',
+    edit_fleet: 'edit-fleet',
   },
 };

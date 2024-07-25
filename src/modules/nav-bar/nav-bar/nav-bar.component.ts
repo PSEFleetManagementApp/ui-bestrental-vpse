@@ -42,4 +42,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
     }
     return false;
   }
+
+  isFleetCoordinator() {
+    // TODO: Implement this method
+    return false;
+  }
 }

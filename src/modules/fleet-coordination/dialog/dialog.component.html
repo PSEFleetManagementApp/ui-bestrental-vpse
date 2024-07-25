@@ -1,0 +1,26 @@
+<div class="dialog-overlay" *ngIf="showDeleteDialog">
+    <div class="dialog-content">
+
+        <div class="delete-message">
+            Do you want to delete Fleet #{{fleet.fleetId}} in {{fleet.location}}?
+        </div>
+
+        <div class="dialog-buttons">
+            <button class="delete-button" (click)="closeDeleteDialog(true)" >Yes</button>
+            <button class="cancel-button" (click)="closeDeleteDialog(false)" >No</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="dialog-overlay" *ngIf="showMessageDialog">
+    <div class="dialog-content">
+
+        <div class="message">{{ message }}</div>
+
+        <div class="dialog-buttons">
+            <button class="ok-button" (click)="closeMessageDialog()">Ok</button>
+        </div>
+
+    </div>
+</div>
