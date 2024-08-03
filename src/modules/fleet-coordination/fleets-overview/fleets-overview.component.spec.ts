@@ -41,7 +41,7 @@ describe('FleetsOverviewComponent', () => {
   it('should call deleteFleet when a fleet is deleted', () => {
     const fleetId = '1'; // Replace with the fleetId you want to test
     mockFleetCoordinationService.deleteFleet.and.returnValue(of(null));
-    component.closeDeleteDialog(true, fleetId);
+    component.closeDeleteDialog(true);
     expect(mockFleetCoordinationService.deleteFleet).toHaveBeenCalledWith(fleetId);
   });
 

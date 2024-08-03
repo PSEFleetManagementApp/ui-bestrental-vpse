@@ -41,42 +41,42 @@ const canActivateFleetCoordinatorRoutes: CanActivateFn = (_route: ActivatedRoute
 const routes: Routes = [
   // Path to rental overview
   {
-    path: environment.pages.rental_overview,
+    path: 'rental-overview',
     component: RentalOverviewComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateCustomerRoutes],
   },
 
   // Path to rental creation
   {
-    path: environment.pages.rental_creation,
+    path: 'rental-creation',
     component: RentalCreationComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateCustomerRoutes],
   },
 
   // Path to available cars list
   {
-    path: environment.pages.available_cars_list,
+    path: 'available-cars-list',
     component: AvailableCarsListComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateCustomerRoutes],
   },
 
   // Path to list car rentals
   {
-    path: environment.pages.list_car_rentals,
+    path: 'list-car-rentals',
     component: ListCarRentalsComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetManagerRoutes]
   },
 
   // Path to fleet overview
   {
-    path: environment.pages.fleet_overview,
+    path: 'fleet-overview',
     component: FleetOverviewComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetManagerRoutes],
   },
 
   // Path to car addition
   {
-    path: environment.pages.car_addition,
+    path: 'car-addition',
     component: CarAdditionComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetManagerRoutes],
   },
@@ -90,35 +90,35 @@ const routes: Routes = [
 
   // Path to login page
   {
-    path: environment.pages.login_page,
+    path: 'login-page',
     component: LoginPageComponent,
     canActivate: [canActivateLoginPage],
   },
 
   // Path to landing page
   {
-    path: environment.pages.landing_page,
+    path: 'landing-page',
     component: LandingPageComponent,
     canActivate: [canActivateAuthenticatedPage],
   },
 
   // Path to fleets overview
   {
-    path: environment.pages.fleets_overview,
+    path: 'fleets-overview',
     component: FleetsOverviewComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
 
   // Path to fleet addition
   {
-    path: environment.pages.fleet_addition,
+    path: 'fleet-addition',
     component: FleetAdditionComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
 
   // Path to edit fleet
   {
-    path: environment.pages.edit_fleet,
+    path: 'edit-fleet',
     component: EditFleetComponent,
     canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
