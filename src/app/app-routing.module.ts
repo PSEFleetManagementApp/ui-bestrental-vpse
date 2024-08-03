@@ -33,6 +33,10 @@ const canActivateFleetManagerRoutes: CanActivateFn = (_route: ActivatedRouteSnap
   return inject(FleetManagerRoutesGuardService).canActivateFleetManagementRoutes();
 };
 
+const canActivateFleetCoordinatorRoutes: CanActivateFn = (_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot) => {
+  return inject(FleetCoordinatorRoutesGuardService).canActivateFleetCoordinatorRoutes();
+}
+
 const routes: Routes = [
   // Path to rental overview
   {
@@ -100,22 +104,22 @@ const routes: Routes = [
   // Path to fleets overview
   {
     path: environment.pages.fleets_overview,
-    component: FleetsOverviewComponent
-    // TODO: canActivate guard
+    component: FleetsOverviewComponent,
+    canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
 
   // Path to fleet addition
   {
     path: environment.pages.fleet_addition,
-    component: FleetAdditionComponent
-    // TODO: canActivate guard
+    component: FleetAdditionComponent,
+    canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
 
   // Path to edit fleet
   {
     path: environment.pages.edit_fleet,
-    component: EditFleetComponent
-    // TODO: canActivate guard
+    component: EditFleetComponent,
+    canActivate: [canActivateAuthenticatedPage, canActivateFleetCoordinatorRoutes],
   },
 
   { path: '**', redirectTo: '' },

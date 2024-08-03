@@ -10,6 +10,7 @@ import { environment } from '../../environments/environment';
 export enum UserRoles {
   CUSTOMER = 'customer',
   FLEET_MANAGER = 'fleetmanager',
+  FLEET_COORDINATOR = 'fleetcoordinator',
 }
 
 /**

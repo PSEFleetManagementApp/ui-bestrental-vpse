@@ -44,7 +44,9 @@ export class NavBarComponent implements OnInit, OnDestroy {
   }
 
   isFleetCoordinator() {
-    // TODO: Implement this method
+    if (this.userProfile !== undefined && this.userProfile !== null) {
+      return this.userProfile.roles.includes(UserRoles.FLEET_COORDINATOR);
+    }
     return false;
   }
 }
