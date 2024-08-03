@@ -1,4 +1,4 @@
-# UI-BestRentalV2.0
+# UI-BestRentalVPSE
 
 Version VPSE of UI-BestRentalVPSE extends the [UI-BestRentalV2.0](https://gitlab.kit.edu/kit/cm/teaching/bestrentalapp/bestrentalappv2.0/ui-bestrentalv2.0) combining the functionality from [CarRentalAppVPSE](https://gitlab.kit.edu/kit/cm/teaching/pseproject/carrentalappvpse/doccarrentalappvpse) and implementing authentication for this new functionality.
 
