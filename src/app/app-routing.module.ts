@@ -11,6 +11,7 @@ import { AvailableCarsListComponent } from '../modules/rental-management/availab
 import { RentalCreationComponent } from '../modules/rental-management/rental-creation/rental-creation.component';
 import { RentalOverviewComponent } from '../modules/rental-management/rental-overview/rental-overview.component';
 import { CustomerRoutesGuardService } from '../core/customer-routes-guard/customer-routes-guard.service';
+import { FleetCoordinatorRoutesGuardService } from '../core/fleet-coordinator-routes-guard/fleet-coordinator-routes-guard.service';
 import { FleetManagerRoutesGuardService } from '../core/fleet-manager-routes-guard/fleet-manager-routes-guard.service';
 import { ListCarRentalsComponent } from '../modules/rental-management/list-car-rentals/list-car-rentals.component';
 import { EditFleetComponent } from "../modules/fleet-coordination/edit-fleet/edit-fleet.component";
