@@ -9,7 +9,7 @@ export const commonEnv = {
 
     user_self_management_endpoint: issuerEndpoint + '/account',
 
-    client_id: 'best-rental-app-oc-v2.0',
+    client_id: 'best-rental-app-oc-vpse',
 
     scope: 'openid profile email',
   },
