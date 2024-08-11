@@ -4,7 +4,6 @@ import { LandingPageComponent } from '../modules/landing-page/landing-page/landi
 import { LoginPageComponent } from '../modules/login-page/login-page/login-page.component';
 import { AuthGuardService } from '../core/auth-guard/auth-guard.service';
 import { inject } from '@angular/core';
-import { environment } from '../environments/environment';
 import { FleetOverviewComponent } from '../modules/fleet-management/fleet-overview/fleet-overview.component';
 import { CarAdditionComponent } from '../modules/fleet-management/car-addition/car-addition.component';
 import { AvailableCarsListComponent } from '../modules/rental-management/available-cars-list/available-cars-list.component';
@@ -84,7 +83,7 @@ const routes: Routes = [
   // Home Path
   {
     path: '',
-    redirectTo: environment.pages.login_page,
+    redirectTo: 'login-page',
     pathMatch: 'full',
   },
 
