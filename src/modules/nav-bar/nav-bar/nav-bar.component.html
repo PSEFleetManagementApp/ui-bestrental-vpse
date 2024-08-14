@@ -1,0 +1,26 @@
+<div *ngIf="isLoggedIn == true" class="nav-bar-container">
+  <div class="left">
+    <a class="home-page-link" routerLink="/">
+      <div class="logo">
+        <img src="../../../assets/logo.png" alt="icon" />
+        <span>BestRentalAppVPSE</span>
+      </div>
+    </a>
+  </div>
+  <div class="right">
+    <div class="customer-container" *ngIf="isCustomer()">
+      <a routerLink="rental-overview">Rental Overview</a>
+      <a routerLink="available-cars-list">List Available Cars</a>
+    </div>
+
+    <div class="rental-manager-container" *ngIf="isFleetManager()">
+      <a routerLink="fleet-overview">Fleet Overview</a>
+    </div>
+
+    <div class="fleet-coordination-container" *ngIf="isFleetCoordinator()">
+      <a routerLink="fleets-overview">Fleets Overview</a>
+    </div>
+
+    <app-account-button [authNService]="authNService" />
+  </div>
+</div>

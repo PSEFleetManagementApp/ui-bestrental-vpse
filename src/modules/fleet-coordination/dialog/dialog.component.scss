@@ -1,0 +1,83 @@
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  z-index: 1001;
+  outline : solid 1px black;
+
+}
+
+.message {
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.delete-message {
+  font-size: 30px;
+  overflow: auto;
+  word-wrap: break-word;
+}
+
+.dialog-buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.delete-button {
+    background-color: tomato;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.delete-button:hover {
+    background-color: red;
+}
+
+.cancel-button {
+    background-color: greenyellow;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.cancel-button:hover {
+    background-color: limegreen;
+}
+
+.ok-button {
+    background-color: grey;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.confirm-button {
+    background-color: greenyellow;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-right: 10px;
+}
+
+.deny-button {
+    background-color: tomato;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+}

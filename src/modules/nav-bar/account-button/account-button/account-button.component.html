@@ -1,0 +1,11 @@
+<div *ngIf="isLoggedIn != undefined">
+  <button *ngIf="!isLoggedIn" type="button" (click)="onLoginButtonClick()">Login</button>
+
+  <div *ngIf="isLoggedIn" class="dropdown">
+    <button class="dropdown-button">Hello, {{ userProfile?.given_name }}</button>
+    <div class="dropdown-content">
+      <span (click)="onAccountButtonClick()">Account</span>
+      <span (click)="onLogoutButtonClick()">Logout</span>
+    </div>
+  </div>
+</div>

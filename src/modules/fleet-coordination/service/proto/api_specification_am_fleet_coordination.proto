@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+package fleetcoordination;
+
+option go_package = "./pb";
+
+service FleetCoordinatorService{
+    rpc CreateNewFleet(CreateNewFleetRequest) returns (CreateNewFleetResponse) {}
+    rpc ChangeFleetManager(ChangeFleetManagerRequest) returns (ChangeFleetManagerResponse) {}
+    rpc ListFleets(ListFleetsRequest) returns (ListFleetsResponse) {}
+    rpc ListFleetManagers(ListFleetManagersRequest) returns (ListFleetManagersResponse) {}
+    rpc DeleteFleet(DeleteFleetRequest) returns (DeleteFleetResponse) {}
+}
+
+//communication
+
+message CreateNewFleetRequest {
+    string location = 1;
+    string fleetManager = 2;
+}
+
+message CreateNewFleetResponse {
+    Fleet fleet = 1;
+    ErrorDetail error = 2;
+}
+
+message ChangeFleetManagerRequest {
+    Fleet fleet = 1;
+    string fleetManager = 2;
+}
+
+message ChangeFleetManagerResponse {
+    bool result = 1;
+    ErrorDetail error = 2;
+}
+
+message ListFleetsRequest {}
+
+message ListFleetsResponse {
+    repeated Fleet fleets = 1;
+    ErrorDetail error = 2;
+}
+
+message ListFleetManagersRequest {}
+
+message ListFleetManagersResponse {
+    repeated string managers = 1;
+    ErrorDetail error = 2;
+}
+
+message DeleteFleetRequest {
+    Fleet fleet = 1;
+}
+
+message DeleteFleetResponse {
+    bool result = 1;
+    ErrorDetail error = 2;
+}
+
+//types
+
+message Fleet {
+    string fleetId = 1;
+    string location = 2;
+    string fleetManager = 3;
+}
+
+message ErrorDetail {
+    string message = 1;
+    string details = 2;
+}

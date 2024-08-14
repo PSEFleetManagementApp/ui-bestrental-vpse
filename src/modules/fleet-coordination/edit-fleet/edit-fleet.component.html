@@ -1,0 +1,28 @@
+<div class="background-container">
+    <div class="title">Edit fleet</div>
+    <app-dialog
+            *ngIf="showMessageDialog"
+            [showMessageDialog]="showMessageDialog"
+            [message]="message"
+            (close)="closeMessageDialog()">
+    </app-dialog>
+    <div class="fleet-data">
+        <div class="description">Fleet ID: {{fleet.fleetId}}</div>
+        <div class="description">Location: {{fleet.location}}</div>
+
+        <div class="fleet-manager">
+            <div class="description">Fleet Manager</div>
+            <select class="manager-select" [(ngModel)]="newFleetManager">
+                <option *ngFor="let fleetManager of fleetManagers" [value]="fleetManager">{{fleetManager}}</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button class="button save-button" (click)="saveChanges()">Save</button>
+            <button class="button cancel-button" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+
+
+
+</div>
