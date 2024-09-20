@@ -2,6 +2,146 @@ import * as jspb from 'google-protobuf'
 
 
 
+export class CreateNewFleetRequest extends jspb.Message {
+  getLocation(): string;
+  setLocation(value: string): CreateNewFleetRequest;
+
+  getFleetmanager(): string;
+  setFleetmanager(value: string): CreateNewFleetRequest;
+
+  getFleetid(): string;
+  setFleetid(value: string): CreateNewFleetRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateNewFleetRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateNewFleetRequest): CreateNewFleetRequest.AsObject;
+  static serializeBinaryToWriter(message: CreateNewFleetRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateNewFleetRequest;
+  static deserializeBinaryFromReader(message: CreateNewFleetRequest, reader: jspb.BinaryReader): CreateNewFleetRequest;
+}
+
+export namespace CreateNewFleetRequest {
+  export type AsObject = {
+    location: string,
+    fleetmanager: string,
+    fleetid: string,
+  }
+}
+
+export class CreateNewFleetResponse extends jspb.Message {
+  getFleet(): Fleet | undefined;
+  setFleet(value?: Fleet): CreateNewFleetResponse;
+  hasFleet(): boolean;
+  clearFleet(): CreateNewFleetResponse;
+
+  getError(): ErrorDetail | undefined;
+  setError(value?: ErrorDetail): CreateNewFleetResponse;
+  hasError(): boolean;
+  clearError(): CreateNewFleetResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CreateNewFleetResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: CreateNewFleetResponse): CreateNewFleetResponse.AsObject;
+  static serializeBinaryToWriter(message: CreateNewFleetResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CreateNewFleetResponse;
+  static deserializeBinaryFromReader(message: CreateNewFleetResponse, reader: jspb.BinaryReader): CreateNewFleetResponse;
+}
+
+export namespace CreateNewFleetResponse {
+  export type AsObject = {
+    fleet?: Fleet.AsObject,
+    error?: ErrorDetail.AsObject,
+  }
+}
+
+export class ChangeFleetManagerRequest extends jspb.Message {
+  getFleetid(): string;
+  setFleetid(value: string): ChangeFleetManagerRequest;
+
+  getFleetmanager(): string;
+  setFleetmanager(value: string): ChangeFleetManagerRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ChangeFleetManagerRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: ChangeFleetManagerRequest): ChangeFleetManagerRequest.AsObject;
+  static serializeBinaryToWriter(message: ChangeFleetManagerRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ChangeFleetManagerRequest;
+  static deserializeBinaryFromReader(message: ChangeFleetManagerRequest, reader: jspb.BinaryReader): ChangeFleetManagerRequest;
+}
+
+export namespace ChangeFleetManagerRequest {
+  export type AsObject = {
+    fleetid: string,
+    fleetmanager: string,
+  }
+}
+
+export class ChangeFleetManagerResponse extends jspb.Message {
+  getResult(): boolean;
+  setResult(value: boolean): ChangeFleetManagerResponse;
+
+  getError(): ErrorDetail | undefined;
+  setError(value?: ErrorDetail): ChangeFleetManagerResponse;
+  hasError(): boolean;
+  clearError(): ChangeFleetManagerResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ChangeFleetManagerResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: ChangeFleetManagerResponse): ChangeFleetManagerResponse.AsObject;
+  static serializeBinaryToWriter(message: ChangeFleetManagerResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ChangeFleetManagerResponse;
+  static deserializeBinaryFromReader(message: ChangeFleetManagerResponse, reader: jspb.BinaryReader): ChangeFleetManagerResponse;
+}
+
+export namespace ChangeFleetManagerResponse {
+  export type AsObject = {
+    result: boolean,
+    error?: ErrorDetail.AsObject,
+  }
+}
+
+export class DeleteFleetRequest extends jspb.Message {
+  getFleetid(): string;
+  setFleetid(value: string): DeleteFleetRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeleteFleetRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteFleetRequest): DeleteFleetRequest.AsObject;
+  static serializeBinaryToWriter(message: DeleteFleetRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteFleetRequest;
+  static deserializeBinaryFromReader(message: DeleteFleetRequest, reader: jspb.BinaryReader): DeleteFleetRequest;
+}
+
+export namespace DeleteFleetRequest {
+  export type AsObject = {
+    fleetid: string,
+  }
+}
+
+export class DeleteFleetResponse extends jspb.Message {
+  getResult(): boolean;
+  setResult(value: boolean): DeleteFleetResponse;
+
+  getError(): ErrorDetail | undefined;
+  setError(value?: ErrorDetail): DeleteFleetResponse;
+  hasError(): boolean;
+  clearError(): DeleteFleetResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): DeleteFleetResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: DeleteFleetResponse): DeleteFleetResponse.AsObject;
+  static serializeBinaryToWriter(message: DeleteFleetResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): DeleteFleetResponse;
+  static deserializeBinaryFromReader(message: DeleteFleetResponse, reader: jspb.BinaryReader): DeleteFleetResponse;
+}
+
+export namespace DeleteFleetResponse {
+  export type AsObject = {
+    result: boolean,
+    error?: ErrorDetail.AsObject,
+  }
+}
+
 export class AddCarToFleetRequest extends jspb.Message {
   getVin(): Vin | undefined;
   setVin(value?: Vin): AddCarToFleetRequest;
@@ -186,6 +326,50 @@ export class ViewCarInformationResponse extends jspb.Message {
 export namespace ViewCarInformationResponse {
   export type AsObject = {
     car?: Car.AsObject,
+    error?: ErrorDetail.AsObject,
+  }
+}
+
+export class GetMyFleetsRequest extends jspb.Message {
+  getFleetmanager(): string;
+  setFleetmanager(value: string): GetMyFleetsRequest;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetMyFleetsRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: GetMyFleetsRequest): GetMyFleetsRequest.AsObject;
+  static serializeBinaryToWriter(message: GetMyFleetsRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetMyFleetsRequest;
+  static deserializeBinaryFromReader(message: GetMyFleetsRequest, reader: jspb.BinaryReader): GetMyFleetsRequest;
+}
+
+export namespace GetMyFleetsRequest {
+  export type AsObject = {
+    fleetmanager: string,
+  }
+}
+
+export class GetMyFleetsResponse extends jspb.Message {
+  getFleetidsList(): Array<string>;
+  setFleetidsList(value: Array<string>): GetMyFleetsResponse;
+  clearFleetidsList(): GetMyFleetsResponse;
+  addFleetids(value: string, index?: number): GetMyFleetsResponse;
+
+  getError(): ErrorDetail | undefined;
+  setError(value?: ErrorDetail): GetMyFleetsResponse;
+  hasError(): boolean;
+  clearError(): GetMyFleetsResponse;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): GetMyFleetsResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: GetMyFleetsResponse): GetMyFleetsResponse.AsObject;
+  static serializeBinaryToWriter(message: GetMyFleetsResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): GetMyFleetsResponse;
+  static deserializeBinaryFromReader(message: GetMyFleetsResponse, reader: jspb.BinaryReader): GetMyFleetsResponse;
+}
+
+export namespace GetMyFleetsResponse {
+  export type AsObject = {
+    fleetidsList: Array<string>,
     error?: ErrorDetail.AsObject,
   }
 }

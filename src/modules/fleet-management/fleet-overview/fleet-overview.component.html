@@ -3,6 +3,12 @@
     <div class="text-container">
       <div class="page-title">Fleet Overview</div>
     </div>
+    <div class="fleet-selector">
+      <div class="label">Select Fleet:</div>
+      <select class="fleet-select" [(ngModel)]="fleetId" (change)="change()">
+        <option *ngFor="let fleet of fleets" [value]="fleet">{{fleet}}</option>
+      </select>
+    </div>
 
     <div *ngIf="fleetCars.length != 0">
       <button class="button" (click)="showAddCar()" style="background-color: transparent; font-size: 30px">
@@ -13,9 +19,7 @@
   <div class="bottom-row">
     <div class="no-cars-in-fleet-container" *ngIf="fleetCars.length == 0; else carsInFleetContainer">
       <div class="message">You have no cars added yet.</div>
-      <div class="car-addition-link-button">
-        <a routerLink="/car-addition">Add Car</a>
-      </div>
+      <button class="car-addition-link-button" (click)="showAddCar()">Add Car</button>
     </div>
 
     <ng-template #carsInFleetContainer>

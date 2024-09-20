@@ -10,10 +10,48 @@ service FleetService {
   rpc AddCarToFleet(AddCarToFleetRequest) returns (AddCarToFleetResponse) {}
   rpc ListCarsInFleet(ListCarsInFleetRequest) returns (ListCarsInFleetResponse) {}
   rpc RemoveCarFromFleet(RemoveCarFromFleetRequest) returns (RemoveCarFromFleetResponse) {}
+  rpc GetMyFleets(GetMyFleetsRequest) returns  (GetMyFleetsResponse) {}
 }
 
 service CarService {
   rpc ViewCarInformation(ViewCarInformationRequest) returns (ViewCarInformationResponse) {}
+}
+
+service FleetCollectionService {
+  rpc CreateNewFleet(CreateNewFleetRequest) returns (CreateNewFleetResponse) {}
+  rpc DeleteFleet(DeleteFleetRequest) returns (DeleteFleetResponse) {}
+  rpc ChangeFleetManager(ChangeFleetManagerRequest) returns (ChangeFleetManagerResponse) {}
+}
+
+//V1.1
+message CreateNewFleetRequest {
+    string location = 1;
+    string fleetManager = 2;
+    string fleetId = 3;
+}
+
+message CreateNewFleetResponse {
+    Fleet fleet = 1;
+    ErrorDetail error = 2;
+}
+
+message ChangeFleetManagerRequest {
+    string fleetId = 1;
+    string fleetManager = 2;
+}
+
+message ChangeFleetManagerResponse {
+    bool result = 1;
+    ErrorDetail error = 2;
+}
+
+message DeleteFleetRequest {
+    string fleetId = 1;
+}
+
+message DeleteFleetResponse {
+    bool result = 1;
+    ErrorDetail error = 2;
 }
 
 // Request and Return messages
@@ -53,6 +91,15 @@ message ViewCarInformationRequest {
 
 message ViewCarInformationResponse {
   Car car = 1;
+  ErrorDetail error = 2;
+}
+
+message GetMyFleetsRequest {
+  string fleetManager = 1;
+}
+
+message GetMyFleetsResponse {
+  repeated string fleetIDs = 1;
   ErrorDetail error = 2;
 }
 

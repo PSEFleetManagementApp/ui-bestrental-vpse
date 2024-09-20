@@ -194,10 +194,6 @@ export class RentalManagementService {
   }
 
   private getMetadata() {
-    console.log('Metadata:');
-    console.log(this.oAuthService);
-    console.log(`Bearer ${this.oAuthService.getAccessToken()}`);
-
     return { Authorization: `Bearer ${this.oAuthService.getAccessToken()}` };
   }
 }

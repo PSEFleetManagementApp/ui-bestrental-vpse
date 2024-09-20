@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   AddCarToFleetRequest,
-  Car,
+  Car, GetMyFleetsRequest,
   ListCarsInFleetRequest,
   RemoveCarFromFleetRequest,
   Vin,
@@ -27,10 +27,10 @@ export class FleetManagementService {
     this.fleetServiceClient = new FleetServiceClient(environment.fleetManagementServiceHost);
   }
 
-  listCarsInFleet(): Promise<Car[]> {
+  listCarsInFleet(fleetID : string): Promise<Car[]> {
     const request = new ListCarsInFleetRequest();
     //Change to fleet of fleetManager who is logged In
-    request.setFleetid('1');
+    request.setFleetid(fleetID);
 
     return new Promise<Car[]>((resolve, reject) => {
       this.fleetServiceClient.listCarsInFleet(request, this.getMetadata(), (err, response) => {
@@ -44,7 +44,6 @@ export class FleetManagementService {
           resolve,
           reject
         );
-        console.log(response);
       });
     });
   }
@@ -69,7 +68,6 @@ export class FleetManagementService {
           resolve,
           reject
         );
-        window.location.reload();
       });
     });
   }
@@ -92,14 +90,32 @@ export class FleetManagementService {
           resolve,
           reject
         );
-        window.location.reload();
       });
     });
   }
 
+  getMyFleets(fleetManager : string): Promise<string[]> {
+    const request = new GetMyFleetsRequest();
+    request.setFleetmanager(fleetManager);
+
+    return new Promise<string[]>((resolve, reject) => {
+      this.fleetServiceClient.getMyFleets(request, this.getMetadata(), (err, response) => {
+        handleServiceResponse<string[]>(
+          environment.fleetManagementServiceHost,
+          'get my fleets',
+          err,
+          response,
+          response?.getError(),
+          response?.getFleetidsList(),
+          resolve,
+          reject
+        );
+      });
+    });
+
+  }
+
   private getMetadata() {
-    console.log('authorization:');
-    console.log(this.oAuthService.getAccessToken());
     return { Authorization: `Bearer ${this.oAuthService.getAccessToken()}` };
   }
 }

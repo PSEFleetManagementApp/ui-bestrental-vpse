@@ -14,7 +14,7 @@
     </div>
 
     <div class="rental-manager-container" *ngIf="isFleetManager()">
-      <a routerLink="fleet-overview">Fleet Overview</a>
+      <a routerLink="fleet-overview" [queryParams]="{ fleetManager : userProfile?.email }">Fleet Overview</a>
     </div>
 
     <div class="fleet-coordination-container" *ngIf="isFleetCoordinator()">

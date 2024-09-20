@@ -1,5 +1,5 @@
 <div class="l-form">
-  <div class="main-title">Add Car.</div>
+  <div class="main-title">Add Car</div>
 
   <form action="" class="form">
     <div class="form__div">
@@ -9,18 +9,20 @@
 
     <div class="form__div">
       <input class="form__input" placeholder=" " #vin title="vin" />
-      <label for="" class="form__label">Vin</label>
+      <label class="form__label">Vin</label>
     </div>
 
     <div class="form__div">
-      <input class="form__input" placeholder=" " #fleetId title="fleetId" />
-      <label for="" class="form__label">Fleet Id</label>
+      <select class="form__input" [(ngModel)]="fleetId">
+        <option *ngFor="let fleet of fleets" [value]="fleet">{{fleet}}</option>
+      </select>
+      <label class="form__label">Fleet Id</label>
     </div>
 
     <input
       type="button"
       class="form__button"
-      (click)="addCarToFleet(location.value, vin.value, fleetId.value)"
+      (click)="addCarToFleet(location.value, vin.value, fleetId)"
       value="Add Car To Fleet"
     />
   </form>
