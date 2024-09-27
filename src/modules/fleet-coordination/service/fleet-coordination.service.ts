@@ -127,8 +127,6 @@ export class FleetCoordinationService {
     }
 
     private getMetadata() {
-      console.log('authorization:');
-      console.log(this.oAuthService.getAccessToken());
       return { Authorization: `Bearer ${this.oAuthService.getAccessToken()}` };
     }
 }

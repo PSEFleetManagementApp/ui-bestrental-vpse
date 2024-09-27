@@ -158,3 +158,25 @@
 .view-rentals-button:hover {
   text-decoration: underline;
 }
+
+.fleet-select {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color:#222;
+  color: white;
+  border-radius: 10px;
+}
+
+.fleet-selector {
+  display: flex;
+  justify-content: left;
+}
+
+.label {
+  font-size: 22px;
+  font-weight: bold;
+  color : white;
+  padding: 10px;
+  margin-top: 3px;
+}
